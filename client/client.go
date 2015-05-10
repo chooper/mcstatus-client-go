@@ -22,7 +22,7 @@ func Connect(uri string) (*Api) {
 }
 
 func (api *Api) PlayersOnline(server string) (PlayerList, error) {
-    log.Printf("Requesting player list from %v\n, server)
+    log.Printf("Requesting player list from %v\n", server)
 
     uri := api.Uri + "/playersonline/" + server
 
