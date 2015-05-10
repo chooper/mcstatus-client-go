@@ -15,12 +15,15 @@ type Api struct {
 type PlayerList []string
 
 func Connect(uri string) (*Api) {
+    log.Printf("Connecting to %v\n", uri)
     return &Api{
         Uri:    uri,
     }
 }
 
 func (api *Api) PlayersOnline(server string) (PlayerList, error) {
+    log.Printf("Requesting player list from %v\n, server)
+
     uri := api.Uri + "/playersonline/" + server
 
     response, err := http.Get(uri)
@@ -35,6 +38,8 @@ func (api *Api) PlayersOnline(server string) (PlayerList, error) {
         log.Print(err)
         return PlayerList{}, err
     }
+
+    log.Printf("Body: %v\n", body)
 
     var players PlayerList
     if err := json.Unmarshal([]byte(body), &players); err != nil {
