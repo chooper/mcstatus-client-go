@@ -1,0 +1,6 @@
+app:
+  build: .
+  command: mcstatus-client-go poller
+  environment:
+    MCSTATUS_API: http://cch-mcstatus-api.herokuapp.com/
+    MINECRAFT_SERVER: charlotte.pearachute.net
