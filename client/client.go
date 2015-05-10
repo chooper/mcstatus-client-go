@@ -39,7 +39,7 @@ func (api *Api) PlayersOnline(server string) (PlayerList, error) {
         return PlayerList{}, err
     }
 
-    log.Printf("Body: %v\n", body)
+    log.Printf("Body: %v\n", string(body))
 
     var players PlayerList
     if err := json.Unmarshal([]byte(body), &players); err != nil {
