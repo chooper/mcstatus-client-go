@@ -25,6 +25,7 @@ func (api *Api) PlayersOnline(server string) (PlayerList, error) {
     log.Printf("Requesting player list from %v\n", server)
 
     uri := api.Uri + "/playersonline/" + server
+    log.Printf("URI: %v\n", uri)
 
     response, err := http.Get(uri)
     if err != nil {
